@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 17px;
+}
+
+:root {
+  --neu-bg: #e0e5ec;
+  --neu-dark: #a3b1c6;
+  --neu-light: #ffffff;
+  --neu-text: #374151;
+  --neu-text-strong: #1a202c;
+  --neu-muted: #6b7a8e;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--neu-bg);
+  color: var(--neu-text);
+}
+
+/* Raised surface — cards, panels */
+.neu-flat {
+  background: var(--neu-bg);
+  box-shadow: 6px 6px 14px var(--neu-dark), -6px -6px 14px var(--neu-light);
+  border-radius: 14px;
+}
+
+/* Inset surface — pressed state, active nav */
+.neu-pressed {
+  background: var(--neu-bg);
+  box-shadow: inset 4px 4px 8px var(--neu-dark), inset -4px -4px 8px var(--neu-light);
+  border-radius: 10px;
+}
+
+/* Default button */
+.neu-btn {
+  background: var(--neu-bg);
+  box-shadow: 4px 4px 8px var(--neu-dark), -4px -4px 8px var(--neu-light);
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease;
+}
+.neu-btn:hover {
+  box-shadow: 6px 6px 12px var(--neu-dark), -6px -6px 12px var(--neu-light);
+}
+.neu-btn:active {
+  box-shadow: inset 3px 3px 6px var(--neu-dark), inset -3px -3px 6px var(--neu-light);
+}
+
+/* Primary dark button */
+.neu-btn-dark {
+  background: #2d3748;
+  color: #fff;
+  box-shadow: 4px 4px 8px var(--neu-dark), -4px -4px 8px var(--neu-light);
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, background 0.15s ease;
+}
+.neu-btn-dark:hover {
+  background: #3a4a5c;
+  box-shadow: 6px 6px 12px var(--neu-dark), -6px -6px 12px var(--neu-light);
+}
+.neu-btn-dark:active {
+  box-shadow: inset 3px 3px 6px #1a202c, inset -3px -3px 6px #4a5568;
+}
+.neu-btn-dark:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Form inputs — carved in */
+.neu-input {
+  background: var(--neu-bg);
+  box-shadow: inset 3px 3px 7px var(--neu-dark), inset -3px -3px 7px var(--neu-light);
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  color: var(--neu-text-strong);
+  transition: box-shadow 0.15s ease;
+}
+.neu-input:focus {
+  box-shadow: inset 4px 4px 9px var(--neu-dark), inset -4px -4px 9px var(--neu-light);
+}
+.neu-input::placeholder {
+  color: #9aa5b4;
+}
