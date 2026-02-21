@@ -1,73 +1,88 @@
-# React + TypeScript + Vite
+# College Admin Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack web application for managing student records in a college.
+Built as part of the __Web Technologies CIA - 3__ assignment.
 
-Currently, two official plugins are available:
+Link to ZIP file: [College Admin Dashboard.zip](https://drive.google.com/file/d/1bOniF_AwTGehppKSMKAuohB0BytMPPIJ/view?usp=sharing)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| | |
+|---|---|
+| **Submitted By** | Brahmvir Singh Seeray |
+| **Register No.** | 2420916 |
+| **Class** | 4 BBA DS |
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- **Dashboard** — view total student count and number of departments at a glance
+- **Student Table** — lists all students with their Name, Email, Department, and Phone
+- **Add Student** — form to enroll a new student into the system
+- **Edit Student** — update any student's details via a modal popup
+- **Delete Student** — remove a student with a confirmation prompt
+- All data is persisted in a cloud MongoDB database
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Running the Project
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+> **Prerequisites:** [Node.js](https://nodejs.org) must be installed.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# 1. Navigate into the project folder
+cd client
+
+# 2. Install all dependencies (only needed once)
+npm install
+
+# 3. Start both the frontend and backend together
+npm start
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+| Service | URL |
+|---|---|
+| Frontend | http://localhost:5173 |
+| Backend API | http://localhost:5000 |
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | React 19 + TypeScript |
+| Styling | Tailwind CSS v4 + Neumorphic design |
+| Bundler | Vite |
+| Backend | Node.js + Express |
+| Database | MongoDB Atlas (cloud) + Mongoose |
+| Routing | React Router v7 |
+
+---
+
+## Project Structure
+
 ```
+client/
+├── server.js          # Express API entry point
+├── models/
+│   └── Student.js     # Mongoose schema
+├── routes/
+│   └── students.js    # REST API routes (GET / POST / PUT / DELETE)
+└── src/
+    ├── components/
+    │   ├── Navbar.tsx
+    │   ├── StudentTable.tsx
+    │   └── EditModal.tsx
+    └── pages/
+        ├── Dashboard.tsx
+        └── AddStudent.tsx
+```
+
+## API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/api/students` | Fetch all students |
+| `POST` | `/api/students` | Add a new student |
+| `PUT` | `/api/students/:id` | Update a student |
+| `DELETE` | `/api/students/:id` | Delete a student |
