@@ -1,32 +1,33 @@
 # College Admin Dashboard
 
 A full-stack web application for managing student records in a college.
-Built as part of the __Web Technologies CIA - 3__ assignment.
+Built as part of the **Web Technologies CIA - 3** assignment.
 
 Link to ZIP file: [College Admin Dashboard.zip](https://drive.google.com/file/d/1bOniF_AwTGehppKSMKAuohB0BytMPPIJ/view?usp=sharing)
+Link to hosted website: [wt-cia-3.vercel.app](https://wt-cia-3.vercel.app/)
 
-| | |
-|---|---|
-| **Submitted By** | Brahmvir Singh Seeray |
-| **Register No.** | 2420916 |
-| **Class** | 4 BBA DS |
+|||
+|-|-|
+|**Submitted By**|Brahmvir Singh Seeray|
+|**Register No.**|2420916|
+|**Class**|4 BBA DS|
 
 ---
 
 ## Features
 
-- **Dashboard** — view total student count and number of departments at a glance
-- **Student Table** — lists all students with their Name, Email, Department, and Phone
-- **Add Student** — form to enroll a new student into the system
-- **Edit Student** — update any student's details via a modal popup
-- **Delete Student** — remove a student with a confirmation prompt
-- All data is persisted in a cloud MongoDB database
+* **Dashboard** — view total student count and number of departments at a glance
+* **Student Table** — lists all students with their Name, Email, Department, and Phone
+* **Add Student** — form to enroll a new student into the system
+* **Edit Student** — update any student's details via a modal popup
+* **Delete Student** — remove a student with a confirmation prompt
+* All data is persisted in a cloud MongoDB database
 
 ---
 
 ## Running the Project
 
-> **Prerequisites:** [Node.js](https://nodejs.org) must be installed.
+> \*\*Prerequisites:\*\* \[Node.js](https://nodejs.org) must be installed.
 
 ```bash
 # 1. Navigate into the project folder
@@ -39,23 +40,23 @@ npm install
 npm start
 ```
 
-| Service | URL |
-|---|---|
-| Frontend | http://localhost:5173 |
-| Backend API | http://localhost:5000 |
+|Service|URL|
+|-|-|
+|Frontend|http://localhost:5173|
+|Backend API|http://localhost:5000|
 
 ---
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Frontend | React 19 + TypeScript |
-| Styling | Tailwind CSS v4 + Neumorphic design |
-| Bundler | Vite |
-| Backend | Node.js + Express |
-| Database | MongoDB Atlas (cloud) + Mongoose |
-| Routing | React Router v7 |
+|Layer|Technology|
+|-|-|
+|Frontend|React 19 + TypeScript|
+|Styling|Tailwind CSS v4 + Neumorphic design|
+|Bundler|Vite|
+|Backend|Node.js + Express|
+|Database|MongoDB Atlas (cloud) + Mongoose (CLI)|
+|Routing|React Router v7|
 
 ---
 
@@ -80,9 +81,15 @@ client/
 
 ## API Endpoints
 
-| Method | Endpoint | Description |
-|---|---|---|
-| `GET` | `/api/students` | Fetch all students |
-| `POST` | `/api/students` | Add a new student |
-| `PUT` | `/api/students/:id` | Update a student |
-| `DELETE` | `/api/students/:id` | Delete a student |
+|Method|Endpoint|Description|
+|-|-|-|
+|`GET`|`/api/students`|Fetch all students|
+|`POST`|`/api/students`|Add a new student|
+|`PUT`|`/api/students/:id`|Update a student|
+|`DELETE`|`/api/students/:id`|Delete a student|
+
+## How it works
+
+* When a student is added it sends a message to my MongoDB cluster, where a `JSON` file where the data of all the students is stored.
+* This data is then fetched by the main page which displays all the stored information in a table on the home page.
+* 
