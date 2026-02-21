@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import api from "../lib/api";
 import type { Student } from "../types/Student";
 
 interface EditModalProps {
@@ -27,7 +27,7 @@ export default function EditModal({ student, onClose, onUpdated }: EditModalProp
     setLoading(true);
     setError("");
     try {
-      const res = await axios.put(`/api/students/${student._id}`, form);
+      const res = await api.put(`/api/students/${student._id}`, form);
       onUpdated(res.data);
     } catch (err: any) {
       setError(err.response?.data?.message || "Failed to update student");

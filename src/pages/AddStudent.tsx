@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import api from "../lib/api";
 import { useNavigate } from "react-router-dom";
 
 const DEPARTMENTS = [
@@ -37,7 +37,7 @@ export default function AddStudent() {
     setError("");
 
     try {
-      await axios.post("/api/students", form);
+      await api.post("/api/students", form);
       setSuccess(true);
       setForm({ name: "", email: "", department: "", phone: "" });
       setTimeout(() => navigate("/"), 1500);

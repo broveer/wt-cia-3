@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../lib/api";
 import type { Student } from "../types/Student";
 import StudentTable from "../components/StudentTable";
 
@@ -9,7 +9,7 @@ export default function Dashboard() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    axios
+    api
       .get("/api/students")
       .then((res) => setStudents(res.data))
       .catch(() => setError("Failed to load students. Is the server running?"))

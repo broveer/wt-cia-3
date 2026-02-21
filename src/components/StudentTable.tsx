@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import api from "../lib/api";
 import type { Student } from "../types/Student";
 import EditModal from "./EditModal";
 
@@ -17,7 +17,7 @@ export default function StudentTable({ students, onDeleted, onUpdated }: Student
     if (!confirm("Delete this student?")) return;
     setDeletingId(id);
     try {
-      await axios.delete(`/api/students/${id}`);
+      await api.delete(`/api/students/${id}`);
       onDeleted(id);
     } catch {
       alert("Failed to delete.");
